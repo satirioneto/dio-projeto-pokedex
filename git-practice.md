@@ -1,1 +1,0 @@
-# praticando git e github junto com a extensão Git Lens do VS Code
