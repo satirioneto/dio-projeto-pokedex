@@ -24,7 +24,7 @@ pokeApi.getPokemonsDetail = (pokemon) => { // salva uma chave nova dentro do obj
     .then(convertPokeApiDetailToPokemon);
 }
 
-pokeApi.getPokemons = (offset = 0, limit = 6) => { // outra chave adicionada ao objeto pokeApi
+pokeApi.getPokemons = (offset = 0, limit = 50) => { // outra chave adicionada ao objeto pokeApi
     
     const url =`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`; // chama a PokeApi
 

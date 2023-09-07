@@ -1,9 +1,16 @@
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Mikado', 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 body {
     background-color: #636363;
+}
+
+#tittle {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .content {
@@ -11,13 +18,14 @@ body {
     height: auto;
     padding: 1rem;
     background-color: #fff;
+
 }
 
 @media screen and (min-width: 321px) {
     .content {
         width: 95vw;
         height: auto;
-        margin: 1rem auto;
+        margin: 1rem auto -1rem;
         border-radius: 1rem;
     }
 }
