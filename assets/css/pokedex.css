@@ -86,11 +86,91 @@
     text-align: center;
  
 }
+
+.pokemon .detail .stats {
+    margin: 0;
+    padding: .3rem;
+    list-style: none;
+    font-size: .7rem;  
+    background-color: white;
+    border-radius: .5rem;
+    background-color: rgb(255, 255, 255, 0.2);  
+}
+
+.pokemon .detail .stats .stat{
+    color: #ffffff;
+    padding: .2rem;
+}
+
 .pokemon .detail img {
     width: 20vh;
     align-self: self-end;
     transition: 0.3s;
 }
+
+
+/* =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/ */
+/* Janela Modal - tipo de janela flutuante para mostrar os status dos pokemons */
+.stats-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    overflow: hidden;
+}
+/* a formatação devem ser junta ".classe.classe" quando precisa que uma classe pertença a outra, sem parentalidade  */
+.stats-modal.open-modal {
+    display: flex;
+}
+.stats-modal .stat-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ab8ec4;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    border-bottom: .3rem solid #5d496e;
+    transition: 0.3s;
+}
+
+.stats-modal .stat-close-btn:hover {
+    border-bottom-width: 0;
+    transform: translateY(.3rem);
+}
+
+
+.stats-modal .stat-modal {
+    padding: .5rem;
+    width: 60%;
+    min-width: 310px;
+    background-color: #ffffff69;
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+
+}
+
+/* @keyframes são as regras para animação da pagina */
+@keyframes open-modal {
+    from{
+        opacity: 0;
+        transform: translate3d(20px, -20px, -20px);
+    } to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.open-modal .stat-modal {
+    animation: open-modal 0.2s;
+}
+/* =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/ */
+
 
 /* formatacao do botao 'Load More' */
 .pagination {

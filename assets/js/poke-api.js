@@ -12,6 +12,12 @@ function convertPokeApiDetailToPokemon (pokemonDetail) { // cria uma funcao para
     pokemon.types = types;
     pokemon.type = type;
 
+    const stats = pokemonDetail.stats.map((statSlot) => statSlot.stat.name);
+    const [stat] = stats; // faz um destrutor da lista stats, pegando cada item isolado
+    
+    pokemon.stats = stats;
+    pokemon.stat = stat;
+
     pokemon.image = pokemonDetail.sprites.other["official-artwork"].front_default;
 
     return pokemon;
