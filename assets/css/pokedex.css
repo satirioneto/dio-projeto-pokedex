@@ -86,7 +86,6 @@
     text-align: center;
  
 }
-
 .pokemon .detail .stats {
     margin: 0;
     padding: .3rem;
@@ -96,36 +95,37 @@
     border-radius: .5rem;
     background-color: rgb(255, 255, 255, 0.2);  
 }
-
 .pokemon .detail .stats .stat{
     color: #ffffff;
     padding: .2rem;
 }
-
 .pokemon .detail img {
     width: 20vh;
     align-self: self-end;
     transition: 0.3s;
 }
-
-
 /* =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/ */
 /* Janela Modal - tipo de janela flutuante para mostrar os status dos pokemons */
-.stats-modal {
+.stats-modal { /* Fundo da tela que fica esmaecida meio transparente */
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 999;
-    overflow: hidden;
+    overflow-y: auto;
 }
-/* a formatação devem ser junta ".classe.classe" quando precisa que uma classe pertença a outra, sem parentalidade  */
-.stats-modal.open-modal {
+.stats-modal.open-modal img {
+    width: 160px;
+    align-self: self-end;
+    transition: 0.3s;
+}
+.stats-modal.open-modal { /* a formatação devem ser junta ".classe.classe" quando precisa que uma classe pertença a outra, sem parentalidade  */
     display: flex;
 }
 .stats-modal .stat-close-btn {
@@ -139,23 +139,68 @@
     border-bottom: .3rem solid #5d496e;
     transition: 0.3s;
 }
-
 .stats-modal .stat-close-btn:hover {
     border-bottom-width: 0;
     transform: translateY(.3rem);
 }
-
-
 .stats-modal .stat-modal {
     padding: .5rem;
-    width: 60%;
+    margin: .5rem;
+    width: 80%;
     min-width: 310px;
+    max-width: 620px;
     background-color: #ffffff69;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border-radius: 1rem;
-
+    display: flex;
+    flex-direction: column;
 }
-
+.stats-modal .stat-modal .detail .stats {
+    list-style: none;
+    padding: 0;
+    width: auto;
+}
+.stat-bar {
+    display: none;
+    /* --progresso: 100;
+    background-color: #4ba84f;
+    list-style: none;
+    padding: 2px 10px 2px 10px;
+    border-radius: 20px;
+    border-bottom: 2px solid green;
+    border-right: 2px solid green;
+    margin: 3px;
+    position: relative;
+    min-width: 136px;
+    height: 22px;
+    color: white;
+    width: calc(var(--progresso) * 1%); */
+}
+.stat-bar {
+    --progress: 100;
+    background-color: #4ba84f;
+    list-style: none;
+    padding: 2px 10px 2px 10px;
+    border-radius: 20px;
+    border-bottom: 2px solid green;
+    border-right: 2px solid green;
+    margin: 3px;
+    position: relative;
+    min-width: 136px;
+    height: 22px;
+    color: white;
+    width: calc(var(--progresso) * 1%);
+}
+.stats-modal .name {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.stats-modal .stat-modal .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 /* @keyframes são as regras para animação da pagina */
 @keyframes open-modal {
     from{
@@ -170,8 +215,6 @@
     animation: open-modal 0.2s;
 }
 /* =/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/ */
-
-
 /* formatacao do botao 'Load More' */
 .pagination {
     display: flex;
